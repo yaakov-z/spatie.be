@@ -19,6 +19,13 @@ return [
             'content_parser' => \App\Guidelines\GuidelinesContentParser::class,
         ],
 
+        'operators' => [
+            'disk' => 'operators',
+            'sheet_class' => \App\Operators\OperatorPage::class,
+            'path_parser' => \Spatie\Sheets\PathParsers\SlugParser::class,
+            'content_parser' => \App\Operators\OperatorsContentParser::class,
+        ],
+
         /*
         'posts' => [
             'disk' => 'posts',

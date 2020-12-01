@@ -8,6 +8,7 @@ use App\Http\Auth\Controllers\ResetPasswordController;
 use App\Http\Auth\Controllers\UpdatePasswordController;
 use App\Http\Controllers\DocsController;
 use App\Http\Controllers\DownloadPurchasableController;
+use App\Http\Controllers\OperatorsController;
 use App\Http\Controllers\SignedProductLicenseController;
 use App\Http\Controllers\GitHubSocialiteController;
 use App\Http\Controllers\GuidelinesController;
@@ -123,7 +124,8 @@ Route::get('/docs/{repository}/{alias?}', [DocsController::class, 'repository'])
 Route::get('/docs/{repository}/{alias}/{slug}', [DocsController::class, 'show'])->where('slug', '.*');
 
 Route::view('/tools', 'front.pages.tools.index')->name('tools');
-Route::view('/php-operators', 'front.pages.tools.operators')->name('tools.operators');
+Route::get('/php-operators', [OperatorsController::class, 'index'])->name('tools.operators');
+Route::get('/php-operators/{slug}', [OperatorsController::class, 'show'])->name('tools.operators.show');
 
 Route::get('/guidelines', [GuidelinesController::class, 'index'])->name('guidelines');
 Route::get('/guidelines/{page}', [GuidelinesController::class, 'show']);
