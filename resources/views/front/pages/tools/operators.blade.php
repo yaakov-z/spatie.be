@@ -5,10 +5,13 @@
             <h1 class="banner-slogan">
                 PHP operators
             </h1>
+            <p>
+                
+            </p>
         </header>
         
         <div class="py-8 flex justify-center">
-            <input type="search" class="form-input rounded-full px-4 w-64" placeholder="Look up an operator…">
+            <input type="search" class="form-input rounded-full px-4 w-64">
         </div>
 
         <main>
