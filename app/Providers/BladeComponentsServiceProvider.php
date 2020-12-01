@@ -10,5 +10,6 @@ class BladeComponentsServiceProvider extends ServiceProvider
     public function register()
     {
         Blade::component('layout.default', 'page');
+        Blade::component('layout.tool', 'tool');
     }
 }
