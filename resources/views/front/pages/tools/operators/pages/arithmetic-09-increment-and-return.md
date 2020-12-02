@@ -2,8 +2,8 @@
 title: ++$a
 teaser: "Increment and return"
 category: arithmetic
-tags: [++, increment]
-related: []
+tags: [++$a, increment]
+related: [$a++, --$a]
 ---
 
 Increment `$a` by one, then return it.

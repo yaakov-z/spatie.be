@@ -2,8 +2,8 @@
 title: --$a
 teaser: "Decrement and return"
 category: arithmetic
-tags: [--, decrement]
-related: []
+tags: [--$a, decrement]
+related: [$a--, ++$a]
 ---
 
 Decrement `$a` by one, then return it.

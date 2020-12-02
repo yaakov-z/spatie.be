@@ -3,7 +3,7 @@ title: $a ** $b
 teaser: "Exponentiation"
 category: arithmetic
 tags: ["**", exponent, power]
-related: []
+related: ["*"]
 ---
 
 Raise `$a` the the `$b`th power

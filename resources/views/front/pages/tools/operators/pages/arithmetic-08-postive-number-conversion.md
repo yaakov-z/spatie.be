@@ -2,8 +2,8 @@
 title: +$a
 teaser: "Positive Number Conversion"
 category: arithmetic
-tags: [+, convert]
-related: []
+tags: [+$a, convert]
+related: [-$a]
 ---
 
 When using the `+` operator in front of a variable, that variable will be cast to a number.

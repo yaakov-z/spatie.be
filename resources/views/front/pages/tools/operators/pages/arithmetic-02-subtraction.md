@@ -3,7 +3,7 @@ title: $a - $b
 teaser: "Subtraction"
 category: arithmetic
 tags: [-, subtract]
-related: []
+related: [-=, +]
 ---
 
 Subtract two numbers from each other.

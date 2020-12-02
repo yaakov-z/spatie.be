@@ -22,8 +22,8 @@
                     @foreach($pagesForCategory as $page)
                         <li>
                             <a href="{{ $page->getUrl() }}">
-                                <code>{{ $page->title }}</code>
-                                {{ $page->teaser }}
+                                <code>{{ $page->getTitle() }}</code>
+                                {{ $page->getTeaser() }}
                             </a>
                         </li>
                     @endforeach

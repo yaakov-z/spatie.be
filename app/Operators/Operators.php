@@ -25,8 +25,27 @@ class Operators
         return $this->pages->groupBy(fn(OperatorPage $page) => $page->getCategory());
     }
 
+    public function findByOperator(string $operator)
+    {
+        return $this->pages->first(
+            fn(OperatorPage $page) => $page->getOperator() === $operator
+        );
+    }
+
     public function page(string $slug): ?Sheet
     {
-        return $this->pages->firstWhere('slug', $slug);
+        /** @var \App\Operators\OperatorPage|null $page */
+        $page = $this->pages->firstWhere('slug', $slug);
+
+        if (! $page) {
+            return null;
+        }
+
+        $relatedPages = $page->getRelatedStrings()
+            ->map(fn(string $relatedOperator) => $this->findByOperator($relatedOperator));
+
+        $page->setRelatedPages($relatedPages);
+
+        return $page;
     }
 }

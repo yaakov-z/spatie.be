@@ -3,7 +3,7 @@ title: $a %= $b
 teaser: "Modulo assignment"
 category: arithmetic
 tags: ["%=", shorthand]
-related: []
+related: ["%"]
 ---
 
 Shorthand for `$a = $a % $b`

@@ -3,7 +3,7 @@ title: "$a % $b"
 teaser: "Modulo"
 category: arithmetic
 tags: ["%", module, remainder]
-related: []
+related: ["%=", /]
 ---
 
 Remainder of `$a` divided by `$b`

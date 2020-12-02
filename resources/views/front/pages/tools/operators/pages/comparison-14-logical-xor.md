@@ -2,8 +2,8 @@
 title: $a xor $b
 teaser: "Logical xor"
 category: comparison
-tags: [comparison, logical, xor]
-related: []
+tags: [xor, comparison, logical]
+related: ["and", "or"]
 ---
 
 ```php

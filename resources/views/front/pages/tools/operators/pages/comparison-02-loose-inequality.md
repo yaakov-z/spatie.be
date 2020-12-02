@@ -3,7 +3,7 @@ title: $a != $b
 teaser: "Loose inequality"
 category: comparison
 tags: ["!=", inequality, loose]
-related: []
+related: ["!==", "<>"]
 ---
 
 ```php

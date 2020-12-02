@@ -3,7 +3,7 @@ title: $a || $b
 teaser: "Logical or"
 category: comparison
 tags: ["||", comparison, logical, or]
-related: []
+related: ["or"]
 ---
 
 ```php
