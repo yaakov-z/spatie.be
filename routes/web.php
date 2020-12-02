@@ -124,8 +124,11 @@ Route::get('/docs/{repository}/{alias?}', [DocsController::class, 'repository'])
 Route::get('/docs/{repository}/{alias}/{slug}', [DocsController::class, 'show'])->where('slug', '.*');
 
 Route::view('/tools', 'front.pages.tools.index')->name('tools');
-Route::get('/php-operators', [OperatorsController::class, 'index'])->name('tools.operators');
-Route::get('/php-operators/{slug}', [OperatorsController::class, 'show'])->name('tools.operators.show');
+
+Route::group(['middleware' => 'cache.headers:public;max_age=3600;etag'], function () {
+    Route::get('/php-operators', [OperatorsController::class, 'index'])->name('tools.operators');
+    Route::get('/php-operators/{slug}', [OperatorsController::class, 'show'])->name('tools.operators.show');
+});
 
 Route::get('/guidelines', [GuidelinesController::class, 'index'])->name('guidelines');
 Route::get('/guidelines/{page}', [GuidelinesController::class, 'show']);

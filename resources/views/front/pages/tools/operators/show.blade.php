@@ -2,7 +2,7 @@
 /** @var \App\Operators\OperatorPage $page */
 @endphp
 
-<x-tool title="PHP operators" description="Search for PHP operators">
+<x-operators title="PHP operators" description="Search for PHP operators">
     <a href="{{ action([\App\Http\Controllers\OperatorsController::class, 'index']) }}">
         Back
     </a>
@@ -29,4 +29,4 @@
             @endif
         </main>
     </div>
-</x-tool>
+</x-operators>

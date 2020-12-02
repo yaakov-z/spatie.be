@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Operators\Operators;
+use Illuminate\Routing\Controller;
 
-class OperatorsController
+class OperatorsController extends Controller
 {
     public function index(Operators $operators)
     {
