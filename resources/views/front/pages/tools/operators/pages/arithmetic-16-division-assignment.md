@@ -1,8 +1,8 @@
 ---
 title: $a /= $b
-teaser: "Shorthand division"
+teaser: "Division assignment"
 category: arithmetic
-tags: [/=, divide, division, shorthand]
+tags: [/=, divide, shorthand]
 related: []
 ---
 

@@ -1,8 +1,8 @@
 ---
 title: $a *= $b
-teaser: "Shorthand multiplication"
+teaser: "Multiplication assignment"
 category: arithmetic
-tags: ["*=", multiply, multiplication, shorthand]
+tags: ["*=", multiply, multiplication, assignment, shorthand]
 related: []
 ---
 

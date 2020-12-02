@@ -1,8 +1,8 @@
 ---
 title: $a %= $b
-teaser: "Shorthand modulo"
+teaser: "Modulo assignment"
 category: arithmetic
-tags: [/=, divide, division, shorthand]
+tags: ["%=", shorthand]
 related: []
 ---
 

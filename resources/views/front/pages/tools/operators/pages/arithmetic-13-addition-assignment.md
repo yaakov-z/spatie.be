@@ -1,8 +1,8 @@
 ---
 title: $a += $b
-teaser: "Shorthand addition"
+teaser: "Addition assignment"
 category: arithmetic
-tags: [+=, addition, shorthand]
+tags: [+=, addition, assignment, shorthand]
 related: []
 ---
 
