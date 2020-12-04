@@ -2,10 +2,10 @@
 
 namespace App\Services\DnsTool\Commands;
 
-use App\Services\DnsTool\Command;
+use App\Services\DnsTool\DnsCommand;
 use Symfony\Component\HttpFoundation\Response;
 
-class Clear implements Command
+class ClearDnsCommand implements DnsCommand
 {
     public function canPerform(string $command): bool
     {
@@ -14,6 +14,6 @@ class Clear implements Command
 
     public function perform(string $command): Response
     {
-        return redirect('/');
+        return redirect()->route('tools.dns');
     }
 }

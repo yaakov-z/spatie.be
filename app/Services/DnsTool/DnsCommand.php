@@ -4,7 +4,7 @@ namespace App\Services\DnsTool;
 
 use Symfony\Component\HttpFoundation\Response;
 
-interface Command
+interface DnsCommand
 {
     public function canPerform(string $command): bool;
 

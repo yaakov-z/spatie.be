@@ -2,12 +2,12 @@
 
 namespace App\Services\DnsTool\Commands;
 
-use App\Services\DnsTool\Command;
+use App\Services\DnsTool\DnsCommand;
 use Exception;
 use Spatie\Dns\Dns;
 use Symfony\Component\HttpFoundation\Response;
 
-class DnsLookup implements Command
+class DnsLookupDnsCommand implements DnsCommand
 {
     public function canPerform(string $command): bool
     {
@@ -31,7 +31,7 @@ class DnsLookup implements Command
 
             flash()->error($errorText);
 
-            return redirect('/');
+            return redirect()->route('tools.dns');
         }
 
         return response()->view('front.pages.tools.dns.index', ['output' => $dnsRecords, 'domain' => $domain ]);

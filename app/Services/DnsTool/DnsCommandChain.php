@@ -2,23 +2,23 @@
 
 namespace App\Services\DnsTool;
 
-use App\Services\DnsTool\Commands\Clear;
-use App\Services\DnsTool\Commands\DnsLookup;
-use App\Services\DnsTool\Commands\Doom;
-use App\Services\DnsTool\Commands\Ip;
-use App\Services\DnsTool\Commands\Localhost;
-use App\Services\DnsTool\Commands\Manual;
+use App\Services\DnsTool\Commands\ClearDnsCommand;
+use App\Services\DnsTool\Commands\DnsLookupDnsCommand;
+use App\Services\DnsTool\Commands\DoomDnsCommand;
+use App\Services\DnsTool\Commands\IpDnsCommand;
+use App\Services\DnsTool\Commands\LocalhostDnsCommand;
+use App\Services\DnsTool\Commands\HelpDnsCommand;
 use Symfony\Component\HttpFoundation\Response;
 
 class DnsCommandChain
 {
     protected $commands = [
-        Manual::class,
-        Localhost::class,
-        Clear::class,
-        Ip::class,
-        Doom::class,
-        DnsLookup::class,
+        HelpDnsCommand::class,
+        LocalhostDnsCommand::class,
+        ClearDnsCommand::class,
+        IpDnsCommand::class,
+        DoomDnsCommand::class,
+        DnsLookupDnsCommand::class,
     ];
 
     public function perform(string $input): Response
@@ -27,7 +27,7 @@ class DnsCommandChain
 
         return collect($this->commands)
             ->map(fn(string $commandClassName) => new $commandClassName)
-            ->first(fn(Command $command) => $command->canPerform($input))
+            ->first(fn(DnsCommand $command) => $command->canPerform($input))
             ->perform($input);
     }
 }

@@ -2,10 +2,10 @@
 
 namespace App\Services\DnsTool\Commands;
 
-use App\Services\DnsTool\Command;
+use App\Services\DnsTool\DnsCommand;
 use Symfony\Component\HttpFoundation\Response;
 
-class Localhost implements Command
+class LocalhostDnsCommand implements DnsCommand
 {
     public function canPerform(string $command): bool
     {
