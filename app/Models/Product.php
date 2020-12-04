@@ -30,6 +30,7 @@ class Product extends Model implements HasMedia, Sortable
         'coupon_valid_from' => 'datetime',
         'coupon_expires_at' => 'datetime',
         'price_in_usd_cents' => 'integer',
+        'maximum_activation_count' => 'integer',
     ];
 
     public $with = [
@@ -92,8 +93,6 @@ class Product extends Model implements HasMedia, Sortable
 
     public function purchasableWithDiscount(): ?Purchasable
     {
-        return $this->purchasables()
-            ->where('discount_percentage', '<>', 0)
-            ->first();
+        return optional($this->purchasables()->get())->first(fn (Purchasable $purchasable) => $purchasable->hasActiveDiscount());
     }
 }

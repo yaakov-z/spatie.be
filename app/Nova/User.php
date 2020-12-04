@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use KABBOUCHI\NovaImpersonate\Impersonate;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Gravatar;
 use Laravel\Nova\Fields\HasMany;
@@ -19,7 +20,7 @@ class User extends Resource
     public static $group = "Users";
 
     public static $search = [
-        'id', 'name', 'email',
+        'id', 'name', 'email', 'github_username',
     ];
 
     public function fields(Request $request)
@@ -39,15 +40,22 @@ class User extends Resource
                 ->creationRules(['unique:users,email'])
                 ->updateRules(['unique:users,email,{{resourceId}}']),
 
+            Text::make('GitHub username')->readonly(),
+
             Password::make('Password')
                 ->onlyOnForms()
                 ->creationRules(['required', 'string', 'min:8'])
                 ->updateRules(['nullable', 'string', 'min:8']),
 
             Boolean::make('Is admin'),
+            Boolean::make('Is sponsor')->readonly(),
 
             HasMany::make('Purchases'),
             HasMany::make('Licenses'),
+
+            Impersonate::make($this)->withMeta([
+                'redirect_to' => route('profile'),
+            ]),
         ];
     }
 
