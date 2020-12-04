@@ -3,7 +3,7 @@
 @endphp
 
 <x-operators title="PHP operators" description="Search for PHP operators">
-    <a href="{{ action([\App\Http\Controllers\OperatorsController::class, 'index']) }}">
+    <a href="{{ action([\App\Http\Controllers\Operators\OperatorsController::class, 'index']) }}">
         Back
     </a>
 

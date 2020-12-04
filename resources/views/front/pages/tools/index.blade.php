@@ -19,7 +19,13 @@
                         <p class="mt-4">Look up different PHP operators</p>
                     </a>
                 </div>
+                <div class="line-l">
+                    <a href="{{ route('tools.dns') }}">
+                        <h2 class="title-sm link-black link-underline">DNS records lookup</h2>
+                        <p class="mt-4">Fetch DNS records</p>
+                    </a>
+                </div>
             </div>
-        </div>  
+        </div>
     </section>
 </x-page>

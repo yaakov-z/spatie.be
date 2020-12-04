@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Tools\Operators;
 
 use App\Operators\Operators;
 use Illuminate\Routing\Controller;

@@ -2,7 +2,7 @@
 
 namespace App\Operators;
 
-use App\Http\Controllers\OperatorsController;
+use App\Http\Controllers\Operators\OperatorsController;
 use Illuminate\Support\Collection;
 use Illuminate\Support\HtmlString;
 use Spatie\Sheets\Sheet;

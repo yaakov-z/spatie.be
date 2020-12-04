@@ -8,8 +8,6 @@ use App\Http\Auth\Controllers\ResetPasswordController;
 use App\Http\Auth\Controllers\UpdatePasswordController;
 use App\Http\Controllers\DocsController;
 use App\Http\Controllers\DownloadPurchasableController;
-use App\Http\Controllers\OperatorsController;
-use App\Http\Controllers\SignedProductLicenseController;
 use App\Http\Controllers\GitHubSocialiteController;
 use App\Http\Controllers\GuidelinesController;
 use App\Http\Controllers\InvoicesController;
@@ -23,6 +21,8 @@ use App\Http\Controllers\PurchasesController;
 use App\Http\Controllers\RedirectDocsDomainController;
 use App\Http\Controllers\RedirectGitHubAdClickController;
 use App\Http\Controllers\SeriesController;
+use App\Http\Controllers\Tools\Dns\DnsController;
+use App\Http\Controllers\Tools\Operators\OperatorsController;
 use App\Http\Controllers\VideosController;
 use App\Http\Controllers\WebhookController;
 use Illuminate\Support\Facades\Route;
@@ -123,15 +123,22 @@ Route::get('/docs', [DocsController::class, 'index'])->name('docs');
 Route::get('/docs/{repository}/{alias?}', [DocsController::class, 'repository']);
 Route::get('/docs/{repository}/{alias}/{slug}', [DocsController::class, 'show'])->where('slug', '.*');
 
+
 Route::view('/tools', 'front.pages.tools.index')->name('tools');
 
-Route::group(['middleware' => 'cache.headers:public;max_age=3600;etag'], function () {
-    Route::get('/php-operators', [OperatorsController::class, 'index'])->name('tools.operators');
-    Route::get('/php-operators/{slug}', [OperatorsController::class, 'show'])->name('tools.operators.show');
+Route::prefix('php-operators')->middleware('cache.headers:public;max_age=3600;etag')->group(function() {
+    Route::get('/', [OperatorsController::class, 'index'])->name('tools.operators');
+    Route::get('{slug}', [OperatorsController::class, 'show'])->name('tools.operators.show');
 });
 
-Route::get('/guidelines', [GuidelinesController::class, 'index'])->name('guidelines');
-Route::get('/guidelines/{page}', [GuidelinesController::class, 'show']);
+Route::prefix('dns')->group(function() {
+    Route::get('/', [DnsController::class, 'index'])->name('tools.dns');
+    Route::post('/', [DnsController::class, 'submit']);
+    Route::match(['get', 'post'], '{command}', [DnsController::class, 'submit'])->where('command', '.+');
+});
+
+Route::get('guidelines', [GuidelinesController::class, 'index'])->name('guidelines');
+Route::get('guidelines/{page}', [GuidelinesController::class, 'show']);
 
 Route::view('legal', 'front.pages.legal.index')->name('legal.index');
 Route::view('privacy', 'front.pages.legal.privacy')->name('legal.privacy');
